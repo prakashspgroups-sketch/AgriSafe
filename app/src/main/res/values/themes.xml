@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AgriSafe" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/agri_green</item>
+        <item name="colorPrimaryVariant">@color/agri_green_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/agri_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/agri_green</item>
+        <item name="android:windowBackground">@color/screen_bg</item>
+    </style>
+</resources>

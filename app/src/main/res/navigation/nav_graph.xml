@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Screen 1: Home -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.agrisafe.app.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_selectTest"
+            app:destination="@id/selectTestFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <!-- Screen 2: Select Test -->
+    <fragment
+        android:id="@+id/selectTestFragment"
+        android:name="com.agrisafe.app.ui.selecttest.SelectTestFragment"
+        android:label="Select Test"
+        tools:layout="@layout/fragment_select_test">
+
+        <action
+            android:id="@+id/action_selectTest_to_progress"
+            app:destination="@id/progressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <!-- Screen 3: Progress -->
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.agrisafe.app.ui.progress.ProgressFragment"
+        android:label="Testing"
+        tools:layout="@layout/fragment_progress">
+
+        <!-- Navigate to SAFE result if value <= 75 -->
+        <action
+            android:id="@+id/action_progress_to_resultSafe"
+            app:destination="@id/resultSafeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/progressFragment"
+            app:popUpToInclusive="true" />
+
+        <!-- Navigate to DANGER result if value > 75 -->
+        <action
+            android:id="@+id/action_progress_to_resultDanger"
+            app:destination="@id/resultDangerFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/progressFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Screen 4: Result SAFE -->
+    <fragment
+        android:id="@+id/resultSafeFragment"
+        android:name="com.agrisafe.app.ui.resultsafe.ResultSafeFragment"
+        android:label="Result - Safe"
+        tools:layout="@layout/fragment_result_safe">
+
+        <action
+            android:id="@+id/action_resultSafe_to_summary"
+            app:destination="@id/summaryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <!-- Screen 5: Result DANGER -->
+    <fragment
+        android:id="@+id/resultDangerFragment"
+        android:name="com.agrisafe.app.ui.resultdanger.ResultDangerFragment"
+        android:label="Result - Danger"
+        tools:layout="@layout/fragment_result_danger">
+
+        <action
+            android:id="@+id/action_resultDanger_to_summary"
+            app:destination="@id/summaryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <!-- Screen 6: Summary / Final -->
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.agrisafe.app.ui.summary.SummaryFragment"
+        android:label="Summary"
+        tools:layout="@layout/fragment_summary" />
+
+</navigation>
