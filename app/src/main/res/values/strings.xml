@@ -35,7 +35,7 @@
     <string name="result_value_label">Result Value : %d ppb</string>
     <string name="pct_safe_label">✓ %d%% of safe limit</string>
     <string name="pct_danger_label">⚠ %d%% of safe limit</string>
-    <string name="meta_label">%s · Result: %d ppb</string>
+    <string name="meta_label" formatted="false">%s · Result: %d ppb</string>
     <string name="recommendation_label">Recommendation</string>
     <string name="rec_safe_text">Crop is safe to harvest and sell. No harmful pesticide level detected. Retest recommended in 7 days.</string>
     <string name="rec_danger_text">Do NOT harvest. Do NOT sell. Contact your agriculture officer. Retest after 14 days.</string>
