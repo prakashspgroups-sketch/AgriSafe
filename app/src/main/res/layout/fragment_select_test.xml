@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screen_bg"
-    android:orientation="vertical">
+    android:background="@color/screen_bg">
 
-    <!-- Tab bar row -->
+    <!-- Tab bar -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/tabBar"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@color/white"
+        android:elevation="2dp"
         android:orientation="horizontal"
-        android:elevation="2dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="0dp"
@@ -21,7 +25,7 @@
             android:gravity="center"
             android:text="@string/tab_test"
             android:textColor="@color/agri_green"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:background="@drawable/bg_tab_active" />
 
@@ -32,7 +36,7 @@
             android:gravity="center"
             android:text="@string/tab_history"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -41,13 +45,19 @@
             android:gravity="center"
             android:text="@string/tab_settings"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
+    <!-- Scrollable cards area -->
     <ScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/scrollCards"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/btnContinue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,147 +71,77 @@
                 android:layout_marginBottom="20dp"
                 android:text="@string/select_test_question"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!-- Card 1: Crop / Vegetable -->
+            <!-- Card 1: Crop -->
             <LinearLayout
                 android:id="@+id/cardCrop"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="72dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_card_selectable"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
-
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="🌾"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_crop"
-                        android:textColor="@color/text_primary"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_crop_sub"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="🌾" android:textSize="28sp" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_crop" android:textColor="@color/text_primary" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_crop_sub" android:textColor="@color/text_secondary" android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Card 2: Water Quality -->
+            <!-- Card 2: Water -->
             <LinearLayout
                 android:id="@+id/cardWater"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="72dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_card_selectable"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
-
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="💧"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_water"
-                        android:textColor="@color/text_primary"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_water_sub"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="💧" android:textSize="28sp" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_water" android:textColor="@color/text_primary" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_water_sub" android:textColor="@color/text_secondary" android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Card 3: Soil Sample -->
+            <!-- Card 3: Soil -->
             <LinearLayout
                 android:id="@+id/cardSoil"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_height="72dp"
                 android:background="@drawable/bg_card_selectable"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
-
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="🪨"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_soil"
-                        android:textColor="@color/text_primary"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/test_soil_sub"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="🪨" android:textSize="28sp" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_soil" android:textColor="@color/text_primary" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_soil_sub" android:textColor="@color/text_secondary" android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Continue Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnContinue"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/btn_continue"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="@color/agri_green"
-                app:cornerRadius="16dp" />
-
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <!-- Continue button pinned to bottom -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinue"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/btn_continue"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/agri_green"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
