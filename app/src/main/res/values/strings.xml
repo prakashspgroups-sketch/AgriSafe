@@ -44,9 +44,22 @@
     <!-- Summary Screen -->
     <string name="test_completed">Test Completed ✓</string>
     <string name="summary_subtitle">Here is your test summary</string>
-    <string name="summary_header">Test Summary</string>
+    <string name="summary_header">TEST SUMMARY</string>
     <string name="summary_test_type">Test Type:  %s</string>
     <string name="summary_result_value">Result Value:  %d ppb</string>
     <string name="summary_status">Final Status:  %s</string>
     <string name="btn_back_home">← Back to Home</string>
+
+    <!-- Expert View -->
+    <string name="tab_farmer_view">Farmer View</string>
+    <string name="tab_expert_mode">Expert Mode</string>
+    <string name="expert_badge">EXPERT</string>
+    <string name="expert_title">Raw measurement data</string>
+    <string name="stat_peak_current">Peak current</string>
+    <string name="stat_peak_potential">Peak potential</string>
+    <string name="stat_technique">Technique</string>
+    <string name="stat_temperature">Temperature</string>
+    <string name="stat_scan_rate">Scan rate</string>
+    <string name="stat_strip_id">Strip ID</string>
+    <string name="chart_title">DPV curve — Current (µA) vs Potential (V)</string>
 </resources>
